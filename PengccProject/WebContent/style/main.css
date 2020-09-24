@@ -1,0 +1,373 @@
+/*--����--*/
+body{
+	background-color:#f3f1e9;
+	font-family:Tahoma,Helvetica,Arial,"����",sans-serif;
+	font-size:12px;
+	line-height:2em;
+	color:#333;
+}
+h1,h2,h3{
+	font-size:14px;
+}
+h1{
+	font-family:"����";
+	font-size:18px;
+}
+
+h2.title01{color:darkorange;}
+h2.title02{color:deeppink;}
+h2.title03{color:crimson;}
+ul{
+	list-style-image: url(../images/icon_07.gif);
+}
+img{
+	border-width:0px;
+}
+a{
+	text-decoration:none;
+	color:#333;
+	line-height:2em;
+}
+.picbut{
+	background-image:url(../images/butbg.jpg);
+	width:82px;
+	height:23px;
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+#header{
+	background-image:url(../images/header_bg.gif);
+	height:222px;
+}
+#header_inside{
+	width:999px;
+	margin:0px auto;
+	position:relative;
+}
+#allcontent{
+	/*--2013.7.18��width��999��Ϊ1230--*/
+	width:1230px;
+	margin:0px auto;
+	position:relative;
+}
+#footer{
+	text-align:center;
+	padding:5px;
+	width:100%;
+	border-top-color:#51gs1a;
+	border-top-style:dashed;
+	border-top-width:1px;
+	clear:left;
+}
+/*--����--*/
+#menu{
+	position:absolute;
+	top:170px;
+	left:26px;
+}
+#menu li{
+	display:inline;
+}
+#menu a{
+	margin-right:1px;
+	width:110px;
+	text-align:center;
+	padding:8px 0px;
+	display:block;
+	float:left;
+	color:#0d0d0d;
+	text-decoration:underline;
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+#menu .btn_active,#menu a:hover{
+	background-image:url(../images/but.gif);
+	text-decoration:none;
+	color:#fff;
+}
+
+/*--����8--*/
+#sidebar{
+	width:130px;
+	float:left;
+	padding:0px 10px 10px 10px;
+}
+#sidebar ul{
+	list-style:none;
+	list-style-image:none;
+	margin:0px;
+	padding:0px;
+}
+.list1{
+	background-color:#ececc5;
+}
+#advlist a:hover{
+	color:#d12c47;
+}
+
+/*--��������--*/
+#aboutus{
+	border-color:#e0d8b7;
+	border-width:1px;
+	border-style:solid;
+	background-color:#ececc5;
+	padding:25px;
+	padding-left:70px;
+	margin:15px 0px 15px 0px;
+	line-height:1.9em;
+	font-style:italic;
+	font-family:"��Բ",Arial,serif;
+	color:#444;
+	font-size:14px;
+	width:690px;
+	background-image:url(../images/background.gif);
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+/*--���ǲ�Ʒ--*/
+#starpro{
+	border-style:solid;
+	border-width:1px;
+	border-color:#9f9f5f;
+	padding:20px;
+	margin:0px 0px 10px 730px;
+	background-color:#ececc5;
+	text-align:center;
+}
+
+#starpro h2{
+	color:#d12c47;
+}
+#starpro a{
+	color:#c06c13;
+}
+#starpro a:hover{
+	color:#ffffff;
+	background-color:#f88396;
+}
+/*--�۸��ؼ�--*/
+.price{
+	font:20px verdana;
+	color:#b81616;
+}
+.onsale{
+	font:18px verdana;
+	color:#ee5e0f;
+}
+/*--�Ҳ�����Ч�����--*/
+#main{
+	background-color:#fff;
+	width:507px;
+	float:left;
+	margin:0px 10px 10px 10px;
+	padding:20px;
+}
+#right{
+	width:200px;
+	float:right;
+	padding:10px;
+	margin:0px 10px 10px 10px;
+}
+#login{
+	width:200px;
+	background:#ececc5;
+	border-width:1px; 
+	border-style:solid;
+	border-color:#e0d8b7;
+	height:130px;
+	padding:10px;
+	text-align:left;
+	margin:0px 10px 10px 0px;
+}
+.news{
+background-color:#ECECC5;
+border:1px solid #DFDEC0;
+width:200px;
+padding:10px
+}
+#txtUser,#txtPassword{
+	width:130px;
+	height:15px;
+	margin:3px 0px;
+}
+#content{
+	background-color:#fff;
+	margin:0px 230px 10px 150px;
+	padding:20px;
+}
+#advlist img{
+	float:left;
+	border-width:1px;
+	border-style:dashed;
+	margin-right:10px;
+}
+#aboutuscont{
+	background:#fff;
+	margin:0px 0px 10px 170px;
+	padding:5px 20px 20px 20px;
+}
+#message,#pro_list,#buycar,#pro_list1{
+	background:#fff;
+	margin:0px 0px 10px 170px;
+	padding:5px 20px 10px 10px;
+}
+#regist{
+	background:#fff;
+	margin:0px 0px 10px 0px;
+	padding:5px 20px 20px 20px;
+}
+#registtop{
+	background-image:url(../images/top_c_bg2.gif);
+	background-repeat:no-repeat;
+	background-position:top left;
+	height:40px;
+	padding:5px 5px 5px 15px;
+}
+#pro_list1 img{
+	border-width:1px;
+	border-style:solid;
+	border-color:#999;
+	margin-right:10px;	
+}
+/*--���԰�--*/
+#messagelist{
+	margin:10px 10px 10px 30px;
+}
+#messagelist table{
+	background:#a3c02a;
+	width:649px;
+	margin:5px 0px 0px 0px;
+	border-collapse: separate; 
+	border-spacing: 1px;
+}
+#messagelist td,#messagelist th { 
+	background: white; 
+	padding:10px;
+}
+#messagelist th{
+	width:100px;
+}
+.msgcontent{
+	height:100px;
+	vertical-align:top;
+}
+#registmessage{
+	margin:5px;
+	padding:20px 0px;
+}
+#publishmessage{
+	margin:30px 30px 20px 30px;
+	border-top:1px dashed #999;
+	padding:20px 0px;
+}
+#registmessage table{
+	background:#fff;
+	width:930px;
+	margin:0px 5px;
+	border-collapse: separate; 
+	border-spacing: 1px;
+	border:1px solid #999;
+}
+#publishmessage th,#registmessage th{
+	text-align :right;
+}
+#publishmessage td,#publishmessage th,#registmessage td,#registmessage th{ 
+	padding:8px;
+}
+/*--��Ʒ�б?���ﳵ--*/
+#pro_list table,#buycar table{
+	background:#fff;
+	width:700px;
+	margin:5px 20px 10px 30px;
+	border-collapse: separate; 
+	border-spacing: 1px;
+}
+#buycar{
+	background-color:#fff;
+	width:780px;
+	float:left;
+	margin:0px 10px 10px 10px;
+	padding:20px;
+}
+#pro_list1{
+	background-color:#fff;
+	width:780px;
+	float:left;
+	margin:0px 10px 10px 10px;
+	padding:20px;
+}
+.productslist{
+	width:185px;
+	float:left;
+	position:relative;
+	margin:5px;
+}
+#pro_list td,#buycar td{ 
+	padding:10px;
+}
+#pro_list th,#buycar th{
+	background:#a3c02a; 
+	padding:5px;
+}
+#pro_list caption,#buycar caption{
+	font:bold 16px "����";
+	padding:5px 0px 10px 0px;
+}
+.listcolor{
+	background:#e8f6d0;
+}
+
+/*--�绰���Ż�ȯ--*/
+#tel{
+	position:absolute;
+	top:-50px;
+	right:220px;
+	z-index:99;
+}
+#ticket{
+	position:fixed;
+	top:400px;
+	left:-80px;
+}
+
+/*2013-07-17*/
+#productinfodiv{
+width:770px;
+background-color:#fff;
+border-bottom:1px solid #999;
+margin-bottom:5px;
+float: left;
+}
+#productimg{
+width:310px;
+float:left;
+}
+#starpro2{
+	border-style:solid;
+	border-width:1px;
+	border-color:#9f9f5f;
+	padding:20px;
+	background-color:#ececc5;
+	text-align:center;
+}
+#sidebar2{
+	width:200px;
+	float:left;
+	padding:0px 10px 10px 10px;
+}
+#sidebar2 ul{
+	list-style:none;
+	margin:0px 0px 10px 0px;
+	padding:0px;
+}
+#main2{
+	background-color:#fff;
+	width:720px;
+	float:left;
+	margin:0px 0px 10px 10px;
+	padding:15px;
+}
+.cl{
+	clear:both;
+}
