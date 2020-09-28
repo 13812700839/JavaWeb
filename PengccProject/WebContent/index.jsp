@@ -1,10 +1,11 @@
 
+<%@page import="org.apache.tomcat.util.http.Cookies"%>
+<%@page import="com.digitalweb.model.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 
@@ -61,19 +62,31 @@
 		<div id="right">
 			<div id="login">
 				<%
-					//判断session是否有值
-					if (session.getAttribute("username") == null) {
+					String name="";
+					String passwd="";
+					Cookie[] cookies=request.getCookies();
+					if( cookies !=null){
+						for(Cookie c :cookies){
+							if(c.getName().equals("username"))
+								name=c.getValue();
+							else if(c.getName().equals("password"))
+								passwd=c.getValue();
+						}
+					}
+					User user = (User) session.getAttribute("user");
+					String logininfo=(String) session.getAttribute("logininfo");
+					if (user == null) {
 				%>
 
 				<form id="loginform" name="loginform" method="post"
 					action="doLogin.jsp">
 					<div>
 						<strong>登录名：</strong><input name="txtUser" id="txtUser" size="15"
-							value="" />
+							value="<%=name %>" />
 					</div>
 					<div>
 						<strong>密 码：</strong><input name="txtPassword" type="password"
-							id="txtPassword" size="15" value="" />
+							id="txtPassword" size="15" value="<%=passwd %>" />
 					</div>
 					<div>
 						<strong>验证码：</strong><input name="verifyCode" id="verifyCode"
@@ -84,6 +97,10 @@
 							name="reg" type="button" value="注册用户" class="picbut" onclick="" />
 					</div>
 					<div>
+						<%
+							if(logininfo!=null)
+								out.print(logininfo+"<br>");
+						%>
 						<a href="findPwd.jsp">找回密码</a>
 					</div>
 					<div>
@@ -92,15 +109,13 @@
 				</form>
 				<%
 					} else {
-						//获取已经登录的用户的用户名
-						String username = session.getAttribute("username").toString();
 				%>
 				<ul>
-					<li>欢迎回来，<%=username%></li>
+					<li>欢迎回来，<%=user.getUserName()%></li>
 					<li><a href="">我的购物车</a></li>
 					<li><a href="">我的订单</a></li>
 					<li><a href="">个人信息</a></li>
-					<li><a href="outLogin.jsp">退出</a></li>
+					<li><a href="doLoginOut.jsp">退出</a></li>
 				</ul>
 				<%
 					}

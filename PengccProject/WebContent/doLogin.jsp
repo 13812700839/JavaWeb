@@ -1,3 +1,4 @@
+<%@page import="com.digitalweb.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,25 +9,29 @@
 </head>
 <body>
 	<%
-		//1.获取用户的用户名和密码
+		//方法2.使用JavaBean进行传递
+		// 获取用户的用户名和密码
 		String username = request.getParameter("txtUser");
 		String password = request.getParameter("txtPassword");
-		//2.判断用户名是否为pengcc，密码是否为123456
-		if (username.equals("pengcc")) {
-			//3.如果判断成功的话，则返回index页面
-			if (password.equals("123456")) {
-				session.setAttribute("username", username);
-				session.setAttribute("password", password);
-				out.println("登录成功");
-				response.sendRedirect("index.jsp");
-			}
-			//4.如果判断不正确的话，这显示用户名或密码不正确
-			else {
-				out.println("密码出错！");
-			}
+		String logininfo = "";
+		if (!username.equals("pengcc")) {
+			//用户名错误
+			logininfo = "用户名不存在";
+		} else if (!password.equals("123")) {
+			//密码错误
+			logininfo = "密码错误";
 		} else {
-			out.println("用户名出错！");
+			//将用户名和密码等 相关信息封装成User对象中
+			logininfo="登录成功";
+			User user = new User();
+			user.setUserName(username);
+			user.setPassword(password);
+			session.setAttribute("user", user);
+			response.addCookie(new Cookie("username",username));
+			response.addCookie(new Cookie("password",password));
 		}
+		session.setAttribute("logininfo", logininfo);
+		response.sendRedirect("index.jsp");
 	%>
 </body>
 </html>
