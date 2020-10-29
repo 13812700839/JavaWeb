@@ -137,11 +137,11 @@
     <%
 
         //1.获取传递过来的ID
-        String strid = request.getParameter("id");
-        if (strid == null) {
+        String strid=request.getParameter("id");
+        if(strid==null) {
             System.out.println(strid);
             response.sendRedirect("list_product.jsp");
-        } else {
+        }else{
             int id = Integer.parseInt(strid);
             //2.根据ID获取对应商品的信息
             ProductDaoImpl pdi = new ProductDaoImpl();
@@ -153,16 +153,16 @@
             <img src="<%=product.getPic()%>" width="310" height="310"/>
         </div>
         <div id="tips" style="float: left; width: 430px; height: 200px">
-            <form action="../CartServlet" method="post" name="addCarForm">
+            <form action="<%=path %>/CartServlet?type=add" method="post" name="addCarForm">
                 <h1><%=product.getName()%>
                 </h1>
                 <input type="hidden" name="flag" value="add"/>
-                <input type="hidden" name="id" value=""/>
-                <input type="hidden" name="code" value=""/>
-                <input type="hidden" name="name" value=""/>
-                <input type="hidden" name="price" value=""/>
-                <input type="hidden" name="sale" value=""/>
-                <input type="hidden" name="pic" value=""/>
+                <input type="hidden" name="id" value="<%=product.getId()%>"/>
+                <input type="hidden" name="code" value="<%=product.getCode()%>"/>
+                <input type="hidden" name="name" value="<%=product.getName()%>"/>
+                <input type="hidden" name="price" value="<%=product.getPrice()%>"/>
+                <input type="hidden" name="sale" value="<%=product.getSale()%>"/>
+                <input type="hidden" name="pic" value="<%=product.getPic()%>"/>
                 <ul>
                     <li style="list-style: none;" class="bt"></li>
                     <li style="list-style: none;" class="text">
@@ -174,14 +174,14 @@
                     <li style="list-style: none;" class="text">
                         促销信息：直降￥<%=product.getSale()%>
                     </li>
-                    <%--                    <li style="list-style: none;" class="text">--%>
-                    <%--                        促销信息：直降￥<%=product.getPrice() - product.getSale()%>--%>
-                    <%--                    </li>--%>
+<%--                    <li style="list-style: none;" class="text">--%>
+<%--                        促销信息：直降￥<%=product.getPrice() - product.getSale()%>--%>
+<%--                    </li>--%>
                     <li style="list-style: none;" class="bt">
                         库&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存：<%=product.getNum()%>
                     </li>
                     <li
-                            style="list-style: none; font-size: 13px; font-family: 黑体; color: red;">
+                            style="list-style: none; font-size: 13px; font-family: 黑体; color: #ff0000;">
                         我要买:
                         <input type="text" name="num" id="num" size="3">
                         件
