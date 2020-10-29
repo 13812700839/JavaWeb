@@ -1,5 +1,4 @@
 
-<%@page import="org.apache.tomcat.util.http.Cookies"%>
 <%@page import="com.digitalweb.model.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
