@@ -7,5 +7,6 @@ import com.digitalweb.model.Product;
 public interface ProductDao {
 	
 	public List<Product> list();
+	public Product getProductById(int id);
 	
 }

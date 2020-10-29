@@ -41,4 +41,33 @@ public class ProductDaoImpl extends SuperOpr implements ProductDao {
 		return productList;
 	}
 
+	@Override
+	public Product getProductById(int id) {
+
+		// 根据商品编号获取商品的信息
+		sql="SELECT * FROM PRODUCT_INFO WHERE ID = "+id;
+//		System.out.printf(sql);
+		Product product=new Product();
+		try {
+			psmt=con.prepareStatement(sql);
+			rs=psmt.executeQuery();
+			if (rs.next()){
+				product.setId(rs.getInt("id"));
+				product.setCode(rs.getString("code"));
+				product.setName(rs.getString("name"));
+				product.setType(rs.getString("type"));
+				product.setBrand(rs.getString("brand"));
+				product.setPic(rs.getString("pic"));
+				product.setNum(rs.getInt("num"));
+				product.setPrice(rs.getDouble("price"));
+				product.setSale(rs.getDouble("sale"));
+				product.setIntro(rs.getString("intro"));
+				product.setStatus(rs.getInt("status"));
+			}
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
+
+		return product;
+	}
 }

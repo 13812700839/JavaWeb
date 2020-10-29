@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2020-10-22 17:19:40
+Date: 2020-10-27 10:00:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -69,9 +69,9 @@ CREATE TABLE `product_info` (
 -- ----------------------------
 -- Records of product_info
 -- ----------------------------
-INSERT INTO `product_info` VALUES ('1', 'A10001', '戴尔(Dell) M4040(Ins14VR-6206B) 14英寸笔记本电脑 （双核E2-1800 2G 500G DVD刻 HD7450M 512M独显）黑色', '电脑', '戴尔', '/PengccProject/userfiles/images/A10001.png', '00000000200', '0000002399', '0000000100', '<p><img alt=\"\" src=\"/digitalweb/userfiles/images/A10001-1.png\" style=\"height: 493px; width: 700px\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/digitalweb/userfiles/images/A10001-2.png\" style=\"height: 611px; width: 700px\" /></p>\r\n', '1');
-INSERT INTO `product_info` VALUES ('2', 'A10002', '戴尔（DELL） Ins14zR-2318R 14英寸笔记本电脑（双核i3-3227U 2G 500G HD7570M 1G独显 蓝牙 Win8）红', '电脑', '戴尔', '/PengccProject/userfiles/images/A10002.png', '00000000097', '0000003299', '0000000100', '<p><img alt=\"\" src=\"/digitalweb/userfiles/images/A10002-1.png\" style=\"width: 700px; height: 430px;\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/digitalweb/userfiles/images/A10002-2.png\" style=\"width: 700px; height: 498px;\" /></p>\r\n', '1');
-INSERT INTO `product_info` VALUES ('4', 'A10003', '戴尔（DELL） Ins14TR-3528 14英寸笔记本电脑（双核i5-3210M 4G 500G GT640M 2G独显 USB3.0关机充电 Win7）', '电脑', '戴尔', '/PengccProject/userfiles/images/A10003.png', '00000000099', '0000004399', '0000000100', '<p><img alt=\"\" src=\"/digitalweb/userfiles/images/A10003-1.png\" style=\"width: 500px; height: 451px;\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/digitalweb/userfiles/images/A10003-2.png\" style=\"width: 500px; height: 478px;\" /></p>\r\n', '1');
+INSERT INTO `product_info` VALUES ('1', 'A10001', '戴尔(Dell) M4040(Ins14VR-6206B) 14英寸笔记本电脑 （双核E2-1800 2G 500G DVD刻 HD7450M 512M独显）黑色', '电脑', '戴尔', '/PengccProject/userfiles/images/A10001.png', '00000000200', '0000002399', '0000000100', '<p><img alt=\"\" src=\"/PengccProject/userfiles/images/A10001-1.png\" style=\"height: 493px; width: 700px\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/PengccProject/userfiles/images/A10001-2.png\" style=\"height: 611px; width: 700px\" /></p>\r\n', '1');
+INSERT INTO `product_info` VALUES ('2', 'A10002', '戴尔（DELL） Ins14zR-2318R 14英寸笔记本电脑（双核i3-3227U 2G 500G HD7570M 1G独显 蓝牙 Win8）红', '电脑', '戴尔', '/PengccProject/userfiles/images/A10002.png', '00000000097', '0000003299', '0000000100', '<p><img alt=\"\" src=\"/PengccProject/userfiles/images/A10002-1.png\" style=\"width: 700px; height: 430px;\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/PengccProject/userfiles/images/A10002-2.png\" style=\"width: 700px; height: 498px;\" /></p>\r\n', '1');
+INSERT INTO `product_info` VALUES ('4', 'A10003', '戴尔（DELL） Ins14TR-3528 14英寸笔记本电脑（双核i5-3210M 4G 500G GT640M 2G独显 USB3.0关机充电 Win7）', '电脑', '戴尔', '/PengccProject/userfiles/images/A10003.png', '00000000099', '0000004399', '0000000100', '<p><img alt=\"\" src=\"/PengccProject/userfiles/images/A10003-1.png\" style=\"width: 500px; height: 451px;\" /></p>\r\n\r\n<p><img alt=\"\" src=\"/PengccProject/userfiles/images/A10003-2.png\" style=\"width: 500px; height: 478px;\" /></p>\r\n', '1');
 
 -- ----------------------------
 -- Table structure for `user_info`
