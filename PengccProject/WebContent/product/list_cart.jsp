@@ -86,37 +86,47 @@
                 <th width="6%">删除</th>
             </tr>
 
-            <form id="form" method="post" action="../CartServlet">
+            <%
+                ArrayList<Cart> cartlist = (ArrayList<Cart>) session.getAttribute("cartlist");
+                double sum = 0;
+                if (cartlist != null) {
+                    int i = 0;
+                    for (Cart c : cartlist) {
+            %>
+            <form id="form<%=i%>" method="post" action="../CartServlet?type=update">
                 <input type="hidden" name="flag" value="update"/>
-                <%
-                    ArrayList<Cart> cartlist = (ArrayList<Cart>) session.getAttribute("cartlist");
-                    if (cartlist != null) {
-                        for (Cart c : cartlist) {
-                %>
-                <input type="hidden" name="id" value=""/>
+                <input type="hidden" name="id" value="<%=c.getId()%>"/>
                 <tr>
                     <td><input type="checkbox" name="chkBox" value="checkbox"/></td>
                     <td>
-                        <a href=""><img src="<%=c.getPic()%>" width="75" height="50" alt=""/></a>
+                        <a href="detail_product.jsp?id=<%=c.getId()%>"><img src="<%=c.getPic()%>" width="75" height="50"
+                                                                            alt=""/></a>
                     </td>
-                    <td><a href=""><%=c.getName()%></a></td>
-                    <td>￥<%=c.getPrice()%></td>
+                    <td><a href="detail_product.jsp?id=<%=c.getId()%>"><%=c.getName()%>
+                    </a></td>
+                    <td>￥<%=c.getPrice()%>
+                    </td>
                     <td>
-                        <a onclick="">-</a>
-                        <input type="text" size="2" onChange="changeNum()" name="num" id="num" value="<%=c.getNum()%>"/>
-                        <a onclick="">+</a>
+                        <a onclick="updateCart(<%=i%>,-1)">-</a>
+                        <input type="text" size="2" onChange="changeNum(i)" name="num" id="num" value="<%=c.getNum()%>"/>
+                        <a onclick="updateCart(<%=i%>,1)">+</a>
                     </td>
-                    <td>￥<%=c.getSale()%></td>
-                    <td>￥<%=c.getPrice()*c.getNum()%></td>
-                    <td><a href="">删除</a></td>
+                    <td>￥<%=c.getSale()%>
+                    </td>
+                    <td>￥<%=c.getPrice() * c.getNum()%>
+                    </td>
+                    <td><a href="../CartServlet?type=delete&id=<%=c.getId()%>">删除</a></td>
                 </tr>
-                <%
-                        }
-                    }
-                %>
             </form>
+            <%
+                        i++;
+                        sum += c.getPrice() * c.getNum();
+                    }
+                }
+            %>
             <tr>
-                <td colspan="6">总价：</td>
+                <td colspan="6">总价：<%=sum%>
+                </td>
                 <td>
                     <input type="button" name="totalprice" value="返回" class="picbut" onclick="history.back(-1)"/>
                 </td>
