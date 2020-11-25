@@ -13,14 +13,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet("/CartServlet")
+@WebServlet(urlPatterns = { "/CartServlet" })
 public class CartServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // 设置当前中文显示编辑
-        request.setCharacterEncoding("UTF-8");
-
+        // request.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
 

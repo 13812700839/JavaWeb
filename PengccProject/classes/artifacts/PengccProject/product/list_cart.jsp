@@ -132,7 +132,7 @@
                 </td>
                 <td>
                     <input type="button" name="totalprice" value="结 算" class="picbut"
-                           onclick=" javascript:window.location.href='checkout.jsp'"" />
+                           onclick=" javascript:window.location.href='../buy/checkout.jsp'"" />
                 </td>
             </tr>
         </table>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2020-10-27 10:00:03
+Date: 2020-11-19 17:57:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -91,10 +91,11 @@ CREATE TABLE `user_info` (
   `score` int(11) unsigned DEFAULT '0',
   `regDate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------
 INSERT INTO `user_info` VALUES ('1', 'tom', '123321', '王小二', '?', '江苏省苏州市吴中区', '您的出生地是', '江苏苏州', 'tom@123.com', '电脑，手机，相机', null, '2013-07-14');
 INSERT INTO `user_info` VALUES ('2', 'wen', '123', '张小三', '男', '江苏省南京市玄武区', '您的出生地是？', '江苏南京', 'wen@135.com', '电脑相，机', null, '2013-07-14');
+INSERT INTO `user_info` VALUES ('3', 'pcc', '123', '彭长超', '男', '江苏省苏州市吴中区', '您的学校是？', '苏州工业职业技术学院', 'pcc@163.com', '电脑，手机', null, '2020-11-19');

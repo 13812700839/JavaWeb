@@ -1,5 +1,4 @@
 
-<%@page import="org.apache.tomcat.util.http.Cookies"%>
 <%@page import="com.digitalweb.model.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
@@ -79,7 +78,7 @@
 				%>
 
 				<form id="loginform" name="loginform" method="post"
-					action="doLogin.jsp">
+					action="LoginServlet">
 					<div>
 						<strong>登录名：</strong><input name="txtUser" id="txtUser" size="15"
 							value="<%=name %>" />
