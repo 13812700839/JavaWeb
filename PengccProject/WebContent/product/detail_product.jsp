@@ -36,7 +36,7 @@
         <div id="menu">
             <ul>
                 <li><a href="<%=path %>/index.jsp" class="btn_active">网站首页</a></li>
-                <li><a href="<%=path %>/product/list_product.jsp">商品列表</a></li>
+                <li><a href="<%=path %>../product/list_product.jsp">商品列表</a></li>
                 <li><a href="<%=path %>/product/products_hot.html">热卖产品</a></li>
                 <li><a href="#">最新活动</a></li>
                 <li><a href="<%=path %>/aboutus.html">关于我们</a></li>

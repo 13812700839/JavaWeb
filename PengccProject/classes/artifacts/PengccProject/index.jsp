@@ -111,7 +111,7 @@
 				%>
 				<ul>
 					<li>欢迎回来，<%=user.getUserName()%></li>
-					<li><a href="">我的购物车</a></li>
+					<li><a href="product/list_cart.jsp">我的购物车</a></li>
 					<li><a href="">我的订单</a></li>
 					<li><a href="">个人信息</a></li>
 					<li><a href="doLoginOut.jsp">退出</a></li>
