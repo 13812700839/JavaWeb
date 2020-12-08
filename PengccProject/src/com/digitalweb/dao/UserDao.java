@@ -20,4 +20,8 @@ public interface UserDao {
 
     // 5.修改用户信息
 
+
+    // 6.查询用户信息
+    public List<User> list();
+
 }

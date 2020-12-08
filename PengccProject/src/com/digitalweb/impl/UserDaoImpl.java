@@ -4,6 +4,8 @@ import com.digitalweb.dao.UserDao;
 import com.digitalweb.model.User;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoImpl extends SuperOpr implements UserDao {
 
@@ -78,4 +80,37 @@ public class UserDaoImpl extends SuperOpr implements UserDao {
         return user;
     }
 
+    @Override
+    public List<User> list() {
+
+        List<User> userList = new ArrayList<User>();
+
+        sql="select * from user_info;";
+
+        try {
+            psmt=con.prepareStatement(sql);
+            rs=psmt.executeQuery();
+            while (rs.next()){
+                User user=new User();
+                user.setId(rs.getInt("id"));
+                user.setUserName(rs.getString("userName"));
+                user.setPassword(rs.getString("password"));
+                user.setRealName(rs.getString("realName"));
+                user.setSex(rs.getString("sex"));
+                user.setAddress(rs.getString("address"));
+                user.setQuestion(rs.getString("question"));
+                user.setAnswer(rs.getString("answer"));
+                user.setEmail(rs.getString("email"));
+                user.setFavorate(rs.getString("favorate"));
+                user.setScore(rs.getInt("score"));
+                user.setDate(rs.getString("regDate"));
+                userList.add(user);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return userList;
+    }
 }

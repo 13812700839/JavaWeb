@@ -13,6 +13,15 @@ public class User {
 	private String email;
 	private String favorate;
 	private int score;
+	private String date;
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public User() {}
 	public User(int id, String userName, String password) {
