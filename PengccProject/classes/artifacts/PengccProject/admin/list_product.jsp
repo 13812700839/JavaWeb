@@ -168,8 +168,8 @@ a:active {
             <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1"><%=p.getPrice()%></div></td>
             <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1"><%=p.getSale()%></div></td>
             <td height="18" bgcolor="#FFFFFF"><div align="center" ><a href="#"></a><%=p.getNum()%></div></td>
-            <td height="18" bgcolor="#FFFFFF"><div align="center"><img src="tab/images/037.gif" width="9" height="9" /><span class="STYLE1"> [</span><a href="update_product.jsp?id= %>">编辑</a><span class="STYLE1">]</span></div></td>
-            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="tab/images/010.gif" width="9" height="9" /> </span><span class="STYLE1">[</span><a href="../ProductServlet?flag=delete&id=" onClick="if(confirm('确实要删除此条记录吗？')) return true;else return false;">删除</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><img src="tab/images/037.gif" width="9" height="9" /><span class="STYLE1"> [</span><a href="update_product.jsp?id=<%=p.getId() %>">编辑</a><span class="STYLE1">]</span></div></td>
+            <td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="tab/images/010.gif" width="9" height="9" /> </span><span class="STYLE1">[</span><a href="../ProductServlet?flag=delete&id=<%=p.getId()%>" onClick="if(confirm('确实要删除此条记录吗？')) return true;else return false;">删除</a><span class="STYLE1">]</span></div></td>
           </tr>
 
             <%
@@ -216,7 +216,8 @@ a:active {
         var val=document.getElementsByName("textfield")[0].value;
         var direct="list_product.jsp?page="+val;
         location.href=direct;
-        console.log(direct);
+        // window.location=direct;
+        // console.log(direct);
     }
 </script>
 </body>
