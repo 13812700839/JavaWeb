@@ -112,25 +112,25 @@ public class OrderDaoImpl extends SuperOpr implements OrderDao {
 
                 ArrayList<OrderDetail> detailList = new ArrayList<OrderDetail>();
 
-                sql = "select o_id, p_id, name, price, sale, pic, num from order_detail" +
-                        "join product_info on product_info.id = order_details.p_id " +
+                sql = "select o_id, p_id, name, price, sale, pic, order_detail.num from order_detail " +
+                        "join product_info on product_info.id = order_detail.p_id " +
                         "where o_id="+o.getId();
 
-                psmt = con.prepareStatement(sql);
+                PreparedStatement psmt1 = con.prepareStatement(sql);
 
-                rs= psmt.executeQuery();
+                ResultSet rs1= psmt1.executeQuery();
 
-                while (rs.next()){
+                while (rs1.next()){
 
                     OrderDetail detail = new OrderDetail();
 
-                    detail.setOid(rs.getInt("o_id"));
-                    detail.setPid(rs.getInt("p_id"));
-                    detail.setPname(rs.getString("name"));
-                    detail.setPrice(rs.getDouble("price"));
-                    detail.setSale(rs.getDouble("sale"));
-                    detail.setPic(rs.getString("pic"));
-                    detail.setNum(rs.getInt("num"));
+                    detail.setOid(rs1.getInt("o_id"));
+                    detail.setPid(rs1.getInt("p_id"));
+                    detail.setPname(rs1.getString("name"));
+                    detail.setPrice(rs1.getDouble("price"));
+                    detail.setSale(rs1.getDouble("sale"));
+                    detail.setPic(rs1.getString("pic"));
+                    detail.setNum(rs1.getInt("num"));
 
                     detailList.add(detail);
 
@@ -151,7 +151,63 @@ public class OrderDaoImpl extends SuperOpr implements OrderDao {
 
     @Override
     public ArrayList<Order> list() {
-        return null;
+
+        ArrayList<Order> orderList = new ArrayList<Order>();
+
+        sql = "select order_info.id, userId, username, address, order_info.status, ordertime from order_info " +
+                "join user_info on order_info.userId = user_info.id;";
+
+        try {
+            psmt=con.prepareStatement(sql);
+
+            rs= psmt.executeQuery();
+
+            while (rs.next()){
+                Order o = new Order();
+
+                o.setId(rs.getInt("id"));
+                o.setUserId(rs.getInt("userId"));
+                o.setUserName(rs.getString("username"));
+                o.setAddress(rs.getString("address"));
+                o.setStatus(rs.getString("status"));
+                o.setOrdertime(rs.getString("ordertime"));
+
+                ArrayList<OrderDetail> detailList = new ArrayList<OrderDetail>();
+
+                sql = "select o_id, p_id, name, price, sale, pic, order_detail.num from order_detail " +
+                        "join product_info on product_info.id = order_detail.p_id " +
+                        "where o_id="+o.getId();
+
+                PreparedStatement psmt1 = con.prepareStatement(sql);
+
+                ResultSet rs1= psmt1.executeQuery();
+
+                while (rs1.next()){
+
+                    OrderDetail detail = new OrderDetail();
+
+                    detail.setOid(rs1.getInt("o_id"));
+                    detail.setPid(rs1.getInt("p_id"));
+                    detail.setPname(rs1.getString("name"));
+                    detail.setPrice(rs1.getDouble("price"));
+                    detail.setSale(rs1.getDouble("sale"));
+                    detail.setPic(rs1.getString("pic"));
+                    detail.setNum(rs1.getInt("num"));
+
+                    detailList.add(detail);
+
+                }
+
+                o.setDetailList(detailList);
+
+                orderList.add(o);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return orderList;
     }
 
     @Override
@@ -159,4 +215,14 @@ public class OrderDaoImpl extends SuperOpr implements OrderDao {
         return null;
     }
 
+    @Override
+    public Order getOrderById(int id) {
+        Order order = new Order();
+
+        sql = "select o_id, p_id, name, price, sale, pic, order_detail.num from order_detail " +
+                "join product_info on product_info.id = order_detail.p_id " +
+                "where o_id="+id;
+
+        return null;
+    }
 }

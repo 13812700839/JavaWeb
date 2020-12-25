@@ -18,4 +18,7 @@ public interface OrderDao {
     // 条件查询订单
     public ArrayList<Order> search(String field, String key);
 
+    // 订单查询
+    public Order getOrderById(int id);
+
 }

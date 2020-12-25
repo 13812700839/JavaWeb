@@ -123,7 +123,7 @@
                             <%
                                 if (o.getStatus().equals("已发货")) {
                             %>
-                            <span style="font-size: 12px;color: red;"><a href="">确认收货</a></span>
+                            <span style="font-size: 12px;color: red;"><a href="/OrderServlet">确认收货</a></span>
                             <%
                                 }
                             %>
@@ -132,15 +132,17 @@
 
                     <%
                             for (OrderDetail d : o.getDetailList()) {
+                                System.out.println(d.getOid());
+                                System.out.println(d.getPid());
                     %>
                     <tr>
                         <td class="row" width="40%"><%=d.getPname()%>
                         </td>
                         <td class="row" width="40%"><img src="<%=d.getPic()%>" width="75" height="50"/>
                         </td>
-                        <td class="row" width="10%"><%=d.getPrice()%>
-                        </td>
                         <td class="row" width="10%"><%=d.getNum()%>
+                        </td>
+                        <td class="row" width="10%"><%=d.getPrice()*d.getNum() %>
                         </td>
                     </tr>
 

@@ -113,7 +113,7 @@
 				<ul>
 					<li>欢迎回来，<%=user.getUserName()%></li>
 					<li><a href="product/list_cart.jsp">我的购物车</a></li>
-					<li><a href="">我的订单</a></li>
+					<li><a href="buy/list_order.jsp">我的订单</a></li>
 					<li><a href="">个人信息</a></li>
 					<li><a href="LoginServlet?flag=loginout">退出</a></li>
 				</ul>
