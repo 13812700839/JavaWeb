@@ -1,6 +1,7 @@
 <%@page import="com.digitalweb.model.Product" %>
 <%@page import="com.digitalweb.impl.ProductDaoImpl" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ page import="com.digitalweb.model.User" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
@@ -35,11 +36,11 @@
         </p>
         <div id="menu">
             <ul>
-                <li><a href="<%=path %>/index.jsp" class="btn_active">网站首页</a></li>
-                <li><a href="<%=path %>../product/list_product.jsp">商品列表</a></li>
-                <li><a href="<%=path %>/product/products_hot.html">热卖产品</a></li>
+                <li><a href="<%=path %>../index.jsp" class="btn_active">网站首页</a></li>
+                <li><a href="list_product.jsp">商品列表</a></li>
+                <li><a href="<%=path %>products_hot.html">热卖产品</a></li>
                 <li><a href="#">最新活动</a></li>
-                <li><a href="<%=path %>/aboutus.html">关于我们</a></li>
+                <li><a href="<%=path %>../aboutus.html">关于我们</a></li>
                 <li><a href="#">联系我们</a></li>
             </ul>
         </div>
@@ -207,28 +208,71 @@
 
     <div id="right">
         <div id="login">
-            <form id="loginform" name="loginform" method="post" action="<%=path %>/LoginServlet">
-                <div><strong>登录名：</strong><input name="txtUser" id="txtUser" size="15"/></div>
-                <div><strong>密　码：</strong><input name="txtPassword" type="password" id="txtPassword" size="15"/></div>
+            <%
+                String name="";
+                String passwd="";
+                Cookie[] cookies=request.getCookies();
+                if( cookies !=null){
+                    for(Cookie c :cookies){
+                        if(c.getName().equals("username"))
+                            name=c.getValue();
+                        else if(c.getName().equals("password"))
+                            passwd=c.getValue();
+                    }
+                }
+                User user = (User) session.getAttribute("user");
+                String logininfo=(String) session.getAttribute("logininfo");
+                if (user == null) {
+            %>
+
+            <form id="loginform" name="loginform" method="post"
+                  action="../LoginServlet">
+                <input type="hidden" name="flag" value="login">
                 <div>
-                    <strong>验证码：</strong><input name="verifyCode" id="verifyCode" size="4"/>
-                    <img src="<%=path %>/VerifyCodeServlet" onclick="this.src='<%=path %>/VerifyCodeServlet'"/>
+                    <strong>登录名：</strong><input name="txtUser" id="txtUser" size="15"
+                                                value="<%=name %>" />
                 </div>
-                <div><input type="submit" value="登录" name="submit" class="picbut"/>　
-                    <input name="reg" type="button" value="注册用户" class="picbut"
-                           onclick="javascript:location.href=('regist.jsp');"/>
+                <div>
+                    <strong>密 码：</strong><input name="txtPassword" type="password"
+                                                id="txtPassword" size="15" value="<%=passwd %>" />
+                </div>
+                <div>
+                    <strong>验证码：</strong><input name="verifyCode" id="verifyCode"
+                                                size="4" /> <img src="" onclick="" />
+                </div>
+                <div>
+                    <input type="submit" value="登录" name="submit" class="picbut" /> <input
+                        name="reg" type="button" value="注册用户" class="picbut" onclick="" />
+                </div>
+                <div>
+                    <%
+                        if(logininfo!=null)
+                            out.print(logininfo+"<br>");
+                    %>
+                    <a href="findPwd.jsp">找回密码</a>
+                </div>
+                <div>
+                    <font color=red size=3></font>
                 </div>
             </form>
+            <%
+            } else {
+            %>
             <ul>
-                <li>欢迎回来，</li>
-                <li><a href="list_cart.jsp">我的购物车</a></li>
-                <li><a href="list_order.jsp">我的订单</a></li>
-                <li><a href="<%=path %>/userInfo.jsp">个人信息</a></li>
-                <li><a href="../LogoutServlet">退出</a></li>
+                <li>欢迎回来，<%=user.getUserName()%></li>
+                <li><a href="">我的购物车</a></li>
+                <li><a href="">我的订单</a></li>
+                <li><a href="">个人信息</a></li>
+                <li><a href="LoginServlet?flag=loginout">退出</a></li>
             </ul>
+            <%
+                }
+            %>
         </div>
         <div class="news">
-            <p><img src="../images/title3.gif" alt="" width="100" height="30"/></p>
+            <p>
+                <img src="images/title3.gif" alt="" width="100" height="30" />
+            </p>
             <ol>
                 <li>24小时送达迟一天退10元</li>
                 <li>支付宝金账户购物全场98折</li>

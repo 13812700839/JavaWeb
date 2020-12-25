@@ -33,7 +33,7 @@
 			<div id="menu">
 				<ul>
 					<li><a href="<%=path%>/index.jsp" class="btn_active">网站首页</a></li>
-					<li><a href="<%=path%>/product/list_product.jsp">商品列表</a></li>
+					<li><a href="list_product.jsp">商品列表</a></li>
 					<li><a href="<%=path%>/product/products_hot.html">热卖产品</a></li>
 					<li><a href="#">最新活动</a></li>
 					<li><a href="<%=path%>/aboutus.html">关于我们</a></li>
@@ -88,7 +88,8 @@
 					if (user == null) {
 				%>
 				<form id="loginform" name="loginform" method="post"
-					action="<%=path%>/LoginServlet"" >
+					action="../LoginServlet" >
+				<input type="hidden" name="flag" value="login">
 					<div>
 						<strong>登录名：</strong><input name="txtUser" id="txtUser" size="15" />
 					</div>
@@ -115,7 +116,7 @@
 					<li><a href="list_cart.jsp">我的购物车</a></li>
 					<li><a href="list_order.jsp">我的订单</a></li>
 					<li><a href="<%=path%>/userInfo.jsp">个人信息</a></li>
-					<li><a href="../LogoutServlet">退出</a></li>
+					<li><a href="../LoginServlet?flag=loginout">退出</a></li>
 				</ul>
 				<%
 					}

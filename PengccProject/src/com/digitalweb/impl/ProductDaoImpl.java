@@ -101,7 +101,7 @@ public class ProductDaoImpl extends SuperOpr implements ProductDao {
     @Override
     public boolean update(Product p) {
 
-        sql = "update product_info set code=?, name=?, brand=?, type=?, pic=?, num=?, price=?, sale=?, intro=?, status=0 where id = ?;";
+        sql = "update product_info set code=?, name=?, brand=?, type=?, pic=?, num=?, price=?, sale=?, intro=?, status=1 where id = ?;";
 
         try {
             psmt = con.prepareStatement(sql);

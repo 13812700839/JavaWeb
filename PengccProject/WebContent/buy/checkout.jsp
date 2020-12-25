@@ -77,7 +77,7 @@
                 <li><a href="../product/list_cart.jsp">我的购物车</a></li>
                 <li><a href="list_order.jsp">我的订单</a></li>
                 <li><a href="<%=path %>/userInfo.jsp">个人信息</a></li>
-                <li><a href="../LogoutServlet">退出</a></li>
+                <li><a href="../LogoutServlet?flag=loginout">退出</a></li>
             </ul>
             <%} %>
         </div>

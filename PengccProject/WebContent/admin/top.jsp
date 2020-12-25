@@ -17,7 +17,7 @@
         nowYear = now_Date.getYear()+1900; //获取当前时间中的年份
         nowMonth = now_Date.getMonth() + 1;//获取当前时间中的月份
         nowdate= now_Date.getDate();   //获取当前时间中的日期
-        nowHourse = now_Date.getHours();  
+        nowHourse = now_Date.getHours();
         nowMinutes = now_Date.getMinutes();
         nowSeconds = now_Date.getSeconds();
         var timerDetails = nowYear+'年'+nowMonth+'月'+nowdate+'日'+' '+nowHourse+':'+nowMinutes+':'+nowSeconds; //组合成当前时间字符串

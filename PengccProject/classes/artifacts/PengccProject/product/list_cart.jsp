@@ -47,9 +47,9 @@
         </p>
         <div id="menu">
             <ul>
-                <li><a href="<%=path %>/index.jsp" class="btn_active">网站首页</a></li>
-                <li><a href="<%=path %>/product/list_product.jsp">商品列表</a></li>
-                <li><a href="<%=path %>/product/products_hot.html">热卖产品</a></li>
+                <li><a href="../index.jsp" class="btn_active">网站首页</a></li>
+                <li><a href="list_product.jsp">商品列表</a></li>
+                <li><a href="products_hot.html">热卖产品</a></li>
                 <li><a href="#">最新活动</a></li>
                 <li><a href="<%=path %>/aboutus.html">关于我们</a></li>
                 <li><a href="#">联系我们</a></li>
@@ -161,6 +161,7 @@
 
             <form id="loginform" name="loginform" method="post"
                   action="../LoginServlet">
+                <input type="hidden" name="flag" value="login">
                 <div>
                     <strong>登录名：</strong><input name="txtUser" id="txtUser" size="15"
                                                 value="<%=name %>" />
@@ -196,7 +197,7 @@
                 <li><a href="">我的购物车</a></li>
                 <li><a href="">我的订单</a></li>
                 <li><a href="">个人信息</a></li>
-                <li><a href="doLoginOut.jsp">退出</a></li>
+                <li><a href="../LoginServlet?flag=loginout">退出</a></li>
             </ul>
             <%
                 }
