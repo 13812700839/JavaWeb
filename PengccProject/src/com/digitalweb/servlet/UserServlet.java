@@ -17,6 +17,7 @@ import java.util.List;
         urlPatterns = "/UserServlet"
 )
 public class UserServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session=request.getSession();
@@ -28,7 +29,6 @@ public class UserServlet extends HttpServlet {
         session.setAttribute("userlist", userList);
 
         response.sendRedirect("admin/list_user.jsp");
-
 
     }
 

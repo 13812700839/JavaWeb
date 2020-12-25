@@ -25,8 +25,6 @@ public class ProductServlet extends HttpServlet {
         HttpSession session=request.getSession();
 
         // 实现对商品的相关操作上的分配
-//        System.out.println("执行的是productservlet");
-
         HashMap<String, String[]> map = (HashMap<String, String[]>) request.getParameterMap();
 
         // 调用MODEL完成商品显示
@@ -40,7 +38,6 @@ public class ProductServlet extends HttpServlet {
         if (map.get("flag")[0].equals("add")){
 
             // 获取用户填写的商品信息
-
             Product p = new Product();
 
             p.setCode(map.get("code")[0]);
@@ -72,8 +69,6 @@ public class ProductServlet extends HttpServlet {
             p.setName(map.get("name")[0]);
             p.setBrand(map.get("brand")[0]);
             p.setType(map.get("type")[0]);
-//            System.out.println(map.get("type")[0]);
-//            System.out.println(p.getType());
             p.setPic(map.get("pic")[0]);
             p.setNum(Integer.parseInt(map.get("num")[0]));
             p.setPrice(Double.parseDouble(map.get("price")[0]));
@@ -81,9 +76,9 @@ public class ProductServlet extends HttpServlet {
             p.setIntro(map.get("intro")[0]);
 
             flag = pdi.update(p);
-//            System.out.println(flag);
 
         } else if (map.get("flag")[0].equals("delete")){
+
             flag = pdi.deleteById(Integer.parseInt(map.get("id")[0]));
 
         }

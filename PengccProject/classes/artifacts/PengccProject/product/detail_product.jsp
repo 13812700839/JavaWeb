@@ -140,7 +140,7 @@
         //1.获取传递过来的ID
         String strid=request.getParameter("id");
         if(strid==null) {
-            System.out.println(strid);
+//            System.out.println(strid);
             response.sendRedirect("list_product.jsp");
         }else{
             int id = Integer.parseInt(strid);

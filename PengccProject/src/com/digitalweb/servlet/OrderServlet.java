@@ -24,29 +24,26 @@ import java.util.Map;
         urlPatterns = {"/OrderServlet"}
 )
 public class OrderServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-
-        Map<String, String[]> map = request.getParameterMap();
-
+        PrintWriter out = response.getWriter();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        Map<String, String[]> map = request.getParameterMap();
         OrderDaoImpl odi = new OrderDaoImpl();
-
-        PrintWriter out = response.getWriter();
-
         String direct = "buy/list_order.jsp";
         boolean flag = true;
 
-        if (map.get("flag")[0].equals("add")){
+        if (map.get("flag")[0].equals("add")) {
 
             // 将当前登录的用户信息提取出来，当前用户购物车中信息提取出来
             User user = (User) session.getAttribute("user");
             ArrayList<Cart> cartList = (ArrayList<Cart>) session.getAttribute("cartlist");
             ArrayList<OrderDetail> detailList = new ArrayList<OrderDetail>();
 
-            for (Cart c : cartList){
+            for (Cart c : cartList) {
 
                 OrderDetail detail = new OrderDetail();
 
@@ -76,6 +73,13 @@ public class OrderServlet extends HttpServlet {
             if (!flag)
                 out.print("<scritp>alert('订单生成失败！');</script>");
 
+        } else if (map.get("flag")[0].equals("receive")) {
+
+            flag = odi.receive(Integer.parseInt(map.get("id")[0]));
+
+            if (!flag)
+                out.println("<script>alert('确认收货失败');</script>");
+
         }
 
         response.sendRedirect(direct);
@@ -85,4 +89,5 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
     }
+
 }

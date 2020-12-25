@@ -31,10 +31,6 @@ public class UserDaoImpl extends SuperOpr implements UserDao {
                 // 用户名不存在
                 flag=1;
 
-//            rs.close();
-//            psmt.close();
-//            con.close();
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -65,12 +61,6 @@ public class UserDaoImpl extends SuperOpr implements UserDao {
                 user.setFavorate(rs.getString("favorate"));
                 user.setScore(rs.getInt("score"));
             }
-
-            System.out.println(user.getUserName());
-
-//            rs.close();
-//            psmt.close();
-//            con.close();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -113,4 +103,5 @@ public class UserDaoImpl extends SuperOpr implements UserDao {
 
         return userList;
     }
+
 }

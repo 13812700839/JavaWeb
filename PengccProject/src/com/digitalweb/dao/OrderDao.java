@@ -21,4 +21,10 @@ public interface OrderDao {
     // 订单查询
     public Order getOrderById(int id);
 
+    // 订单发货
+    public boolean send(int id);
+
+    // 订单收货
+    public boolean receive(int id);
+
 }

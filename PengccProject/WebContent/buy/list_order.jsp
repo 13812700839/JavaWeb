@@ -123,7 +123,7 @@
                             <%
                                 if (o.getStatus().equals("已发货")) {
                             %>
-                            <span style="font-size: 12px;color: red;"><a href="/OrderServlet">确认收货</a></span>
+                            <span style="font-size: 12px;color: red;"><a href="../OrderServlet?flag=receive&id=<%=o.getId()%>">确认收货</a></span>
                             <%
                                 }
                             %>
@@ -132,8 +132,6 @@
 
                     <%
                             for (OrderDetail d : o.getDetailList()) {
-                                System.out.println(d.getOid());
-                                System.out.println(d.getPid());
                     %>
                     <tr>
                         <td class="row" width="40%"><%=d.getPname()%>

@@ -137,6 +137,7 @@ a:active {
                 int pageTotal = 0;
                 int pageCount = 3;
                 if (productList != null) {
+
                     // 当商品列表不为空时，计算页面相关信息
                     all = productList.size();
                     pageTotal = (all % pageCount == 0) ? all / pageCount : all / pageCount + 1;
@@ -145,13 +146,13 @@ a:active {
                     String strpage = request.getParameter("page");
 
                     // 如果有跳转页码的请求则设置当前页码为用户请求页
-                    if (strpage != null) {
+                    if (strpage != null)
                         curpage = Integer.parseInt(strpage);
-                    }
 
                     // 设置要显示的真实记录索引
                     int start = (curpage - 1) * pageCount;
                     int end = curpage * pageCount > all ? all : curpage * pageCount;
+
                     for (int i = start; i < end; i++) {
                         Product p = productList.get(i);
             %>
@@ -216,8 +217,6 @@ a:active {
         var val=document.getElementsByName("textfield")[0].value;
         var direct="list_product.jsp?page="+val;
         location.href=direct;
-        // window.location=direct;
-        // console.log(direct);
     }
 </script>
 </body>

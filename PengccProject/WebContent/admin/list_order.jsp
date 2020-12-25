@@ -64,7 +64,7 @@ a:active {
   	<td class="row">
 	<select name="searchType" style="font: 黑体;width: 120">
       <option value="">请选择查询类型</option>
-      <option value="name">用户名</option>
+      <option value="">用户名</option>
       <option value="status">交易状态</option>
      </select>
 	</td>
@@ -141,8 +141,28 @@ a:active {
 
           <%
             ArrayList<Order> orderList = (ArrayList<Order>) session.getAttribute("orderList");
+
+            int all=0;
+            int currentPage=1;
+            int totalPage=0;
+            int pageCount=3;
+
             if (orderList!=null){
-              for (Order o:orderList) {
+
+              all = orderList.size();
+              totalPage = all%pageCount==0?all/pageCount:all/pageCount+1;
+
+              String strpage = (String) request.getParameter("page");
+
+              if (strpage!=null)
+                currentPage=Integer.parseInt(strpage);
+
+              int start = (currentPage-1)*pageCount;
+              int end = pageCount*currentPage>all?all:pageCount*currentPage;
+
+              for (int i=start;i<end;i++) {
+
+                Order o = orderList.get(i);
           %>
 
           <tr>
@@ -164,7 +184,7 @@ a:active {
             <div align="center"><img src="tab/images/037.gif" width="9" height="9" />
 
 			<span class="STYLE1"> [</span>
-				<a href="">发货</a>
+				<a href="../OrderAdminServlet?flag=send&id=<%=o.getId()%>">发货</a>
 			<span class="STYLE1">]</span>
 
               <%
@@ -190,20 +210,20 @@ a:active {
         <td width="15" height="29"><img src="tab/images/tab_20.gif" width="15" height="29" /></td>
         <td background="tab/images/tab_21.gif"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="25%" height="29" nowrap="nowrap"><span class="STYLE1">共条纪录，当前第页，每页条纪录</span></td>
+            <td width="25%" height="29" nowrap="nowrap"><span class="STYLE1">共<%=all%>条纪录，当前第<%=currentPage%>页，每页<%=pageCount%>条纪录</span></td>
             <td width="75%" valign="top" class="STYLE1"><div align="right">
               <table width="352" height="20" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="62" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page=1"><img src="tab/images/first.gif" width="37" height="15" /></a></div></td>
-                  <td width="50" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page="><img src="tab/images/back.gif" width="43" height="15" /></a></div></td>
-                  <td width="54" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page="><img src="tab/images/next.gif" width="43" height="15" /></a></div></td>
-                  <td width="49" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page="><img src="tab/images/last.gif" width="37" height="15" /></a></div></td>
+                  <td width="50" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page=<%=currentPage-1>0?currentPage-1:currentPage%>"><img src="tab/images/back.gif" width="43" height="15" /></a></div></td>
+                  <td width="54" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page=<%=currentPage+1>totalPage?totalPage:currentPage+1%>"><img src="tab/images/next.gif" width="43" height="15" /></a></div></td>
+                  <td width="49" height="22" valign="middle"><div align="right"><a href="list_order.jsp?page=<%=totalPage%>"><img src="tab/images/last.gif" width="37" height="15" /></a></div></td>
                   <td width="59" height="22" valign="middle"><div align="right">转到第</div></td>
                   <td width="25" height="22" valign="middle"><span class="STYLE7">
                     <input name="textfield" type="text" class="STYLE1" style="height:10px; width:25px;" size="5" />
                   </span></td>
                   <td width="23" height="22" valign="middle">页</td>
-                  <td width="30" height="22" valign="middle"><img src="tab/images/go.gif" width="37" height="15" /></td>
+                  <td width="30" height="22" valign="middle"><img src="tab/images/go.gif" onclick="jump()" width="37" height="15" /></td>
                 </tr>
               </table>
             </div></td>
@@ -214,5 +234,12 @@ a:active {
     </table></td>
   </tr>
 </table>
+<script>
+  function jump(){
+    var val=document.getElementsByName("textfield")[0].value;
+    var direct="list_order.jsp?page="+val;
+    location.href=direct;
+  }
+</script>
 </body>
 </html>
